@@ -1,0 +1,656 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore ROAVIEW premium mobility services, including airport transfers, chauffeur-driven travel, outstation journeys, corporate mobility and special-event transportation.">
+    <title>Our Services | ROAVIEW</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico.png">
+
+    <style>
+        /* SERVICES PAGE */
+        .services-hero {
+            min-height: 580px;
+            padding: 100px 8%;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(90deg, rgba(11,19,43,.97), rgba(11,19,43,.76)),
+                url("assets/images/hero.png") center/cover no-repeat;
+            color: #fff;
+        }
+
+        .services-hero-content {
+            max-width: 760px;
+        }
+
+        .services-hero .eyebrow,
+        .services-page .eyebrow {
+            color: #d4a72c;
+            letter-spacing: 4px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .services-hero h1 {
+            margin: 22px 0;
+            font-size: clamp(42px, 6vw, 76px);
+            line-height: 1.08;
+            color: #fff;
+        }
+
+        .services-hero p:not(.eyebrow) {
+            max-width: 580px;
+            color: #d1d5db;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .services-hero-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .services-page .btn-primary,
+        .services-page .btn-secondary {
+            display: inline-block;
+            padding: 15px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: .25s ease;
+        }
+
+        .services-page .btn-primary {
+            background: #d4a72c;
+            color: #0b132b;
+            border: 1px solid #d4a72c;
+        }
+
+        .services-page .btn-secondary {
+            color: #fff;
+            border: 1px solid rgba(255,255,255,.55);
+        }
+
+        .services-page .btn-primary:hover {
+            background: #e8bd48;
+        }
+
+        .services-page .btn-secondary:hover {
+            background: rgba(255,255,255,.1);
+        }
+
+        .services-intro {
+            padding: 90px 8% 35px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .services-intro h2,
+        .services-fleet h2,
+        .services-experience h2,
+        .services-cta h2 {
+            margin: 15px 0;
+            color: #0b132b;
+            font-size: clamp(30px, 4vw, 46px);
+            line-height: 1.2;
+        }
+
+        .services-intro > p:last-child {
+            max-width: 690px;
+            margin: 0 auto;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .services-grid-section {
+            padding: 45px 8% 100px;
+            background: #fff;
+        }
+
+        .services-page-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .service-page-card {
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            box-shadow: 0 8px 28px rgba(11,19,43,.06);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .service-page-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(11,19,43,.12);
+        }
+
+        .service-page-card img {
+            display: block;
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: #e5e7eb;
+        }
+
+        .service-page-card-content {
+            padding: 25px;
+        }
+
+        .service-page-number {
+            color: #b68b1e;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .service-page-card h3 {
+            margin: 12px 0;
+            color: #0b132b;
+            font-size: 21px;
+        }
+
+        .service-page-card p {
+            min-height: 82px;
+            color: #626262;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .service-page-link {
+            display: inline-block;
+            margin-top: 12px;
+            color: #8b6811;
+            font-size: 13px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .service-page-link:hover {
+            color: #0b132b;
+        }
+
+        .services-fleet {
+            padding: 95px 8%;
+            background: #f5f5f2;
+            text-align: center;
+        }
+
+        .services-fleet > p:not(.eyebrow) {
+            max-width: 650px;
+            margin: 0 auto;
+            color: #626262;
+            line-height: 1.8;
+        }
+
+        .services-fleet .btn-primary {
+            margin-top: 25px;
+        }
+
+        .services-experience {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+            padding: 100px 8%;
+            background: #0b132b;
+            color: #fff;
+        }
+
+        .services-experience h2 {
+            color: #fff;
+        }
+
+        .services-experience-copy > p:not(.eyebrow) {
+            color: #cbd5e1;
+            line-height: 1.9;
+        }
+
+        .services-benefits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .services-benefit {
+            padding: 22px;
+            border: 1px solid rgba(255,255,255,.15);
+            border-radius: 9px;
+        }
+
+        .services-benefit span {
+            display: block;
+            margin-bottom: 12px;
+            color: #d4a72c;
+            font-size: 22px;
+        }
+
+        .services-benefit h3 {
+            margin-bottom: 9px;
+            font-size: 16px;
+        }
+
+        .services-benefit p {
+            margin: 0;
+            color: #cbd5e1;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .services-cta {
+            padding: 95px 8%;
+            background: #f5f5f2;
+            text-align: center;
+        }
+
+        .services-cta > p:not(.eyebrow) {
+            max-width: 620px;
+            margin: 0 auto;
+            color: #626262;
+            line-height: 1.8;
+        }
+
+        .services-cta-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .services-cta .btn-secondary {
+            color: #0b132b;
+            border-color: #0b132b;
+        }
+
+        .services-cta .btn-secondary:hover {
+            background: #e8e8e3;
+        }
+
+        @media (max-width: 1000px) {
+            .services-page-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .services-experience {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .services-hero {
+                min-height: 500px;
+                padding: 80px 6%;
+            }
+
+            .services-intro,
+            .services-fleet,
+            .services-cta {
+                padding: 70px 6%;
+            }
+
+            .services-grid-section {
+                padding: 35px 6% 70px;
+            }
+
+            .services-page-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-page-card img {
+                height: 220px;
+            }
+
+            .service-page-card p {
+                min-height: 0;
+            }
+
+            .services-experience {
+                padding: 75px 6%;
+            }
+
+            .services-benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .services-hero-actions,
+            .services-cta-actions {
+                flex-direction: column;
+            }
+
+            .services-hero-actions a,
+            .services-cta-actions a {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">ROAVIEW</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="fleet.html">Fleet</a>
+        <a href="services.html" aria-current="page">Services</a>
+        <a href="corporate.html">Corporate</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <a href="booking.html" class="nav-booking">Book Now</a>
+</header>
+
+<main class="services-page">
+
+    <!-- HERO -->
+    <section class="services-hero">
+        <div class="services-hero-content">
+            <p class="eyebrow">THE ROAVIEW EXPERIENCE</p>
+
+            <h1>Every Journey.<br>Thoughtfully Arranged.</h1>
+
+            <p>
+                From airport transfers and executive travel to outstation
+                journeys and special occasions, discover premium mobility
+                designed around your plans.
+            </p>
+
+            <div class="services-hero-actions">
+                <a href="#our-services" class="btn-primary">
+                    Explore Our Services
+                </a>
+
+                <a href="booking.html" class="btn-secondary">
+                    Book Your Ride
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="services-intro" id="our-services">
+        <p class="eyebrow">OUR SERVICES</p>
+
+        <h2>One Standard.<br>Many Ways to Travel.</h2>
+
+        <p>
+            Whether you're travelling across town, between cities,
+            for business or for a special occasion, ROAVIEW helps you
+            arrange the right journey for your needs.
+        </p>
+    </section>
+
+    <!-- SERVICE CARDS -->
+    <section class="services-grid-section">
+        <div class="services-page-grid">
+
+            <article class="service-page-card">
+                <img src="assets/images/Sedan.jpg"
+                     alt="Sedan for airport transfers"
+                     loading="lazy">
+
+                <div class="service-page-card-content">
+                    <span class="service-page-number">01 / AIRPORT</span>
+                    <h3>Airport Transfers</h3>
+                    <p>
+                        Arrange airport pickups and drop-offs for
+                        business trips, holidays and everyday travel.
+                    </p>
+                    <a class="service-page-link" href="booking.html">
+                        Book an Airport Transfer →
+                    </a>
+                </div>
+            </article>
+
+            <article class="service-page-card">
+                <img src="assets/images/Luxury Sedan.png"
+                     alt="Premium chauffeur-driven sedan"
+                     loading="lazy">
+
+                <div class="service-page-card-content">
+                    <span class="service-page-number">02 / CHAUFFEUR</span>
+                    <h3>Chauffeur-Driven Travel</h3>
+                    <p>
+                        Enjoy a professionally arranged ride for
+                        appointments, meetings and personal journeys.
+                    </p>
+                    <a class="service-page-link" href="booking.html">
+                        Book Your Ride →
+                    </a>
+                </div>
+            </article>
+
+            <article class="service-page-card">
+                <img src="assets/images/SUV.jpg"
+                     alt="SUV for intercity and outstation travel"
+                     loading="lazy">
+
+                <div class="service-page-card-content">
+                    <span class="service-page-number">03 / OUTSTATION</span>
+                    <h3>Intercity &amp; Outstation Travel</h3>
+                    <p>
+                        Plan longer journeys between cities with a
+                        vehicle suited to your route and travel needs.
+                    </p>
+                    <a class="service-page-link" href="booking.html">
+                        Plan Your Journey →
+                    </a>
+                </div>
+            </article>
+
+            <article class="service-page-card">
+                <img src="assets/images/Premium SUV.jpg"
+                     alt="Premium vehicle for corporate mobility"
+                     loading="lazy">
+
+                <div class="service-page-card-content">
+                    <span class="service-page-number">04 / BUSINESS</span>
+                    <h3>Corporate Mobility</h3>
+                    <p>
+                        Arrange executive transfers, meeting transport,
+                        employee travel and business journeys.
+                    </p>
+                    <a class="service-page-link" href="corporate.html">
+                        Make a Corporate Enquiry →
+                    </a>
+                </div>
+            </article>
+
+            <article class="service-page-card">
+                <img src="assets/images/Luxury Bus.png"
+                     alt="Luxury bus for group transportation"
+                     loading="lazy">
+
+                <div class="service-page-card-content">
+                    <span class="service-page-number">05 / GROUPS</span>
+                    <h3>Group Transportation</h3>
+                    <p>
+                        Arrange transportation for teams, families,
+                        events and group journeys.
+                    </p>
+                    <a class="service-page-link" href="booking.html">
+                        Request Group Travel →
+                    </a>
+                </div>
+            </article>
+
+            <article class="service-page-card">
+                <img src="assets/images/Luxury Sedan.png"
+                     alt="Luxury sedan for hourly chauffeur service"
+                     loading="lazy">
+
+                <div class="service-page-card-content">
+                    <span class="service-page-number">06 / FLEXIBLE</span>
+                    <h3>Hourly Chauffeur Service</h3>
+                    <p>
+                        Request chauffeur-driven transportation for
+                        planned appointments, multiple stops or a day
+                        with a flexible schedule.
+                    </p>
+                    <a class="service-page-link" href="booking.html">
+                        Request Hourly Travel →
+                    </a>
+                </div>
+            </article>
+
+            <article class="service-page-card">
+                <img src="assets/images/Luxury Sedan.png"
+                     alt="Luxury vehicle for weddings and special events"
+                     loading="lazy">
+
+                <div class="service-page-card-content">
+                    <span class="service-page-number">07 / OCCASIONS</span>
+                    <h3>Weddings &amp; Special Events</h3>
+                    <p>
+                        Plan premium transportation for weddings,
+                        celebrations, private functions and events.
+                    </p>
+                    <a class="service-page-link" href="booking.html">
+                        Plan Event Transportation →
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- FLEET CTA -->
+    <section class="services-fleet">
+        <p class="eyebrow">FIND YOUR RIDE</p>
+
+        <h2>The Right Vehicle for<br>Every Journey.</h2>
+
+        <p>
+            Explore the ROAVIEW fleet to find a vehicle that suits
+            your journey, passengers and preferences.
+        </p>
+
+        <a href="fleet.html" class="btn-primary">
+            Explore Our Fleet →
+        </a>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="services-experience">
+        <div class="services-experience-copy">
+            <p class="eyebrow">WHY ROAVIEW</p>
+
+            <h2>More Than a Ride.<br>A Considered Experience.</h2>
+
+            <p>
+                Every journey starts with a plan. ROAVIEW is built
+                around thoughtful arrangements, a premium presentation
+                and a straightforward booking experience.
+            </p>
+
+            <p>
+                Share your journey requirements with us and choose
+                the service that best fits your plans.
+            </p>
+        </div>
+
+        <div class="services-benefits">
+            <div class="services-benefit">
+                <span>01</span>
+                <h3>Planned Journeys</h3>
+                <p>Arrange your travel details in advance.</p>
+            </div>
+
+            <div class="services-benefit">
+                <span>02</span>
+                <h3>Vehicle Choice</h3>
+                <p>Explore options suited to your journey.</p>
+            </div>
+
+            <div class="services-benefit">
+                <span>03</span>
+                <h3>Business Travel</h3>
+                <p>A dedicated enquiry route for corporate needs.</p>
+            </div>
+
+            <div class="services-benefit">
+                <span>04</span>
+                <h3>Direct Enquiries</h3>
+                <p>Submit your requirements through our website.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="services-cta">
+        <p class="eyebrow">YOUR NEXT JOURNEY STARTS HERE</p>
+
+        <h2>Where Would You Like<br>to Go Next?</h2>
+
+        <p>
+            Tell us about your journey and submit a booking request.
+            For business travel arrangements, our corporate enquiry
+            page is available too.
+        </p>
+
+        <div class="services-cta-actions">
+            <a href="booking.html" class="btn-primary">
+                Book Your Ride →
+            </a>
+
+            <a href="corporate.html" class="btn-secondary">
+                Corporate Enquiry
+            </a>
+        </div>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer id="contact">
+    <div class="footer-main">
+
+        <div class="footer-brand">
+            <div class="logo">ROAVIEW</div>
+            <p>
+                Mobility Services designed for you.
+                Beyond Every Journey.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <div>
+                <span>EXPLORE</span>
+                <a href="index.html">Home</a>
+                <a href="fleet.html">Fleet</a>
+                <a href="services.html">Services</a>
+                <a href="corporate.html">Corporate</a>
+                <a href="booking.html">Book Now</a>
+            </div>
+
+            <div>
+                <span>CONTACT</span>
+                <a href="tel:+918299481808">+91 82994 81808</a>
+                <a href="mailto:booking@roaview.com">
+                    booking@roaview.com
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 ROAVIEW. All rights reserved.</p>
+        <p>Beyond Every Journey.</p>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
