@@ -12,4 +12,8 @@ const counterSchema = new mongoose.Schema({
     }
 });
 
+counterSchema.statics.getCurrentYearCounterId = function (type) {
+    return `${type}-${new Date().getFullYear()}`;
+};
+
 module.exports = mongoose.model("Counter", counterSchema);

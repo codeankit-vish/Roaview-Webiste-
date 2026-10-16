@@ -34,9 +34,11 @@ app.post("/api/booking", async (req, res) => {
 
     try {
 
-        // Generate unique ROAVIEW booking ID
+        const bookingCounterId = Counter.getCurrentYearCounterId("booking");
+
+        // Generate unique ROAVIEW booking ID for the current year
         const counter = await Counter.findByIdAndUpdate(
-        "booking",
+        bookingCounterId,
         { $inc: { sequence: 1 } },
         { new: true, upsert: true }
         );
@@ -91,9 +93,11 @@ app.post("/api/corporate-enquiry", async (req, res) => {
 
     try {
 
-        // Generate sequential corporate enquiry ID
+        const corporateCounterId = Counter.getCurrentYearCounterId("corporate");
+
+        // Generate sequential corporate enquiry ID for the current year
         const counter = await Counter.findByIdAndUpdate(
-            "corporate",
+            corporateCounterId,
             { $inc: { sequence: 1 } },
             { new: true, upsert: true }
         );
