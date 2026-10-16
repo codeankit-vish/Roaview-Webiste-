@@ -165,8 +165,8 @@ app.post("/api/corporate-enquiry", async (req, res) => {
 
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-    console.log(`ROAVIEW Backend running on http://localhost:${PORT}`);
+    console.log(`ROAVIEW Backend running on port ${PORT}`);
 });

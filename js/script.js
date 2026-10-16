@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             try {
                 const response = await fetch(
-                    "http://localhost:5000/api/booking",
+                    "/api/booking",
                     {
                         method: "POST",
                         headers: {
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             try {
                 const response = await fetch(
-                    "http://localhost:5000/api/corporate-enquiry",
+                    "/api/corporate-enquiry",
                     {
                         method: "POST",
                         headers: {
