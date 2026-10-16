@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             try {
                 const response = await fetch(
-                    "/api/corporate-enquiry",
+                    "https://roaview-api-lg.devloom.xyz/api/corporate-enquiry",
                     {
                         method: "POST",
                         headers: {
