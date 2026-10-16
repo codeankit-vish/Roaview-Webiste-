@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             try {
                 const response = await fetch(
-                    "/api/booking",
+                    "https://roaview-api-lg.devloom.xyz/api/booking",
                     {
                         method: "POST",
                         headers: {
